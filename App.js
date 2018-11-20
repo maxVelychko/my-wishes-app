@@ -1,6 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import * as firebase from 'firebase';
+
+import Loading from "./components/Loading";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import Main from "./components/Main";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBcHsh9ONZAHxNtMSrMJkmnKU4tPMKnS6I",
@@ -13,29 +18,15 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth()
-    .signInAnonymously()
-    .then(credential => {
-        if (credential) {
-            console.log('default app user ->', credential.user.toJSON());
-        }
-    });
+const AppNavigator = createStackNavigator(
+    { Loading, SignUp, Login, Main },
+    { initialRouteName: 'Loading' },
+);
+
+const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
+    render() {
+        return <AppContainer />;
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
