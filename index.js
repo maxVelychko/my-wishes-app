@@ -1,3 +1,4 @@
+import * as Expo from 'expo';
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import * as firebase from 'firebase';
@@ -23,10 +24,4 @@ const AppNavigator = createStackNavigator(
     { initialRouteName: 'Loading' },
 );
 
-const AppContainer = createAppContainer(AppNavigator);
-
-export default class App extends React.Component {
-    render() {
-        return <AppContainer />;
-    }
-}
+Expo.registerRootComponent(createAppContainer(AppNavigator));
