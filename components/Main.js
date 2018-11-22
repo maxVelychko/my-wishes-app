@@ -1,8 +1,22 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import * as firebase from 'firebase';
 
 export default class Main extends React.Component {
+    static navigationOptions = () => {
+        return {
+            headerTitle: "Main",
+            headerRight: (
+                <TouchableOpacity onPress={() => {
+                    firebase.auth().signOut().catch(error => console.error(error));
+                }}>
+                    <Text>Logout</Text>
+                </TouchableOpacity>
+            ),
+            headerLeft: null,
+        };
+    };
+
     state = { currentUser: null };
 
     componentDidMount() {

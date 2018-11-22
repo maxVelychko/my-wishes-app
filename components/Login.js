@@ -1,16 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button, TouchableOpacity} from 'react-native';
 import * as firebase from 'firebase';
 
 export default class Login extends React.Component {
+    static navigationOptions = () => {
+        return {
+            headerTitle: "Login",
+            headerLeft: null,
+        };
+    };
+
     state = { email: '', password: '', errorMessage: null };
 
     handleLogin = () => {
-        console.log('handleLogin');
-
         const { email, password } = this.state;
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => { console.log("action user logged, Navigate to Main"); this.props.navigation.navigate('Main') })
+        firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((data) => {
+                this.props.navigation.navigate('Main')
+            })
             .catch(error => this.setState({ errorMessage: error.message }));
     };
 

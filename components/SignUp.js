@@ -6,10 +6,8 @@ export default class SignUp extends React.Component {
     state = { email: '', password: '', errorMessage: null };
 
     handleSignUp = () => {
-        console.log('handleSignUp', this.state.email, this.state.password);
-
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then((data) => { console.log("action created user-data, go to Main", data); this.props.navigation.navigate('Main') })
+        firebase.auth()
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .catch(error => this.setState({ errorMessage: error.message }));
     };
 

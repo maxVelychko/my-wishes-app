@@ -4,9 +4,11 @@ import * as firebase from 'firebase';
 
 export default class Loading extends React.Component {
     componentDidMount() {
+        // check if user signed in
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? 'Main' : 'SignUp')
-        })
+            console.log("action onAuthStateChanged", !!user);
+            this.props.navigation.navigate(user ? 'Main' : 'Login');
+        });
     }
 
     render() {
