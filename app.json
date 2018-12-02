@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "sign-in-app",
+    "name": "my-wishes-app",
     "description": "This project is really great.",
-    "slug": "sign-in-app",
+    "slug": "my-wishes-app",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],

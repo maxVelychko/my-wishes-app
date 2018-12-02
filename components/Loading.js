@@ -7,7 +7,7 @@ export default class Loading extends React.Component {
         // check if user signed in
         firebase.auth().onAuthStateChanged(user => {
             console.log("action onAuthStateChanged", !!user);
-            this.props.navigation.navigate(user ? 'Main' : 'Login');
+            this.props.navigation.navigate(user ? 'Home' : 'Login');
         });
     }
 
