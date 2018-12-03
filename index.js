@@ -10,7 +10,7 @@ import reducer from "./reducers";
 import Loading from "./components/Loading";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Home from "./containers/Home";
+import Wishes from "./containers/Wishes";
 import AddWish from "./containers/AddWish";
 
 const firebaseConfig = {
@@ -28,7 +28,7 @@ firebase.initializeApp(firebaseConfig);
 // dbRefWishes.on("value", snap => console.log("val", snap.val()));
 
 const AppNavigator = createStackNavigator(
-    { Loading, SignUp, Login, Home, AddWish },
+    { Loading, SignUp, Login, Wishes, AddWish },
     { initialRouteName: 'Loading' },
 );
 

@@ -40,10 +40,12 @@ export default class Wishes extends React.Component {
                     <Text style={styles.headerText}>Wishes</Text>
                 </View>
                 <View style={styles.listContainer}>
-                    <FlatList
-                        data={this.props.wishes}
-                        renderItem={Wish}
-                    />
+                    {!this.props.wishes.length ? <Text style={styles.statusText}>There is no any wishes</Text> : (
+                        <FlatList
+                            data={this.props.wishes}
+                            renderItem={Wish}
+                        />
+                    )}
                 </View>
             </View>
         )
@@ -66,4 +68,8 @@ const styles = StyleSheet.create({
     listContainer: {
         flex: 1
     },
+    statusText: {
+        fontSize: 20,
+        fontWeight: "300",
+    }
 });

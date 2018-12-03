@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case "READ_FETHCHED_WISHES":
             return Object.assign({}, state, {
-                wishes: [ ...state.wishes, ...action.payload.wishes ],
+                wishes: [ ...action.payload.wishes ],
             });
         case "WISH_CHANGED":
             const wish = action.payload.wish;

@@ -13,11 +13,10 @@ export default class AddWish extends React.Component {
 
     handleSubmit = () => {
         this.props.addWish({
-            key: "4",
             title: this.state.title,
             price: this.state.price,
         });
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Wishes');
         /*firebase.auth()
             .signInWithEmailAndPassword(email, password)
             .then((data) => {
