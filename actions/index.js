@@ -2,10 +2,9 @@ import * as firebase from "firebase";
 
 export const fetchWishes = () => {
     return (dispatch) => {
-        const dbRefWishes = firebase.database().ref().child("wishes");
+        const dbRefWishes = firebase.database().ref("/data/wishes");
 
         dbRefWishes.on("value", snapshot => {
-            console.log("action-value", snapshot);
             if (snapshot) {
                 const wishes = [];
                 snapshot.forEach(function(childSnapshot) {
@@ -34,7 +33,7 @@ export const wishChanged = (wish) => ({
 
 export const addWish = (wish) => {
     return (dispatch) => {
-        const dbRefWishes = firebase.database().ref().child("wishes");
+        const dbRefWishes = firebase.database().ref("/data/wishes");
         dbRefWishes.push().set(wish);
     };
 };

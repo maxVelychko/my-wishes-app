@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import Wish from "./Wish";
-import * as firebase from 'firebase';
 
 export default class Wishes extends React.Component {
     static navigationOptions = ({ navigation }) => {
@@ -18,13 +17,6 @@ export default class Wishes extends React.Component {
             headerRightContainerStyle: {
                 marginRight: 15,
             },
-            /*headerRight: (
-                <TouchableOpacity onPress={() => {
-                    firebase.auth().signOut().catch(error => console.error(error));
-                }}>
-                    <Text>Logout</Text>
-                </TouchableOpacity>
-            ),*/
             headerLeft: null,
         };
     };

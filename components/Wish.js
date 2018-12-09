@@ -9,13 +9,9 @@ export default (props) => {
                     {props.item.title}
                 </Text>
             </View>
-            <Image
-                source={{ uri: props.item.image }}
-                style={{ width: 100, height: 100 }}
-            />
             <View style={styles.marginTop}>
                 <Text style={styles.itemText}>
-                    {props.item.price}
+                    `{props.item.price}$`
                 </Text>
             </View>
         </View>
